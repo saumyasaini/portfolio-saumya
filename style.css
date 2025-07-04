@@ -5,10 +5,12 @@
       --dark: #0f172a;
       --accent: #7c3aed;
       --transition: all 0.3s ease;
+      
     }
 
     .hi{
-        color:#ffffff
+        color:#686104
+        
     }
 
     * {
@@ -48,13 +50,15 @@
 
     h1 {
       font-size: clamp(2.5rem, 5vw, 4rem);
+      
     }
 
     h2 {
       font-size: clamp(1.8rem, 4vw, 2.5rem);
       color: var(--primary);
       position: relative;
-      display: inline-block;
+      display: block;
+      text-align: center;
     }
 
     h2::after {
@@ -82,13 +86,13 @@
     .btn {
       display: inline-block;
       padding: 12px 30px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: var(--light);
+       background: linear-gradient(135deg, #163ebe, #45aded); /* Light gradient */
+  color: #e4e4e4; /* Dark text */
+  border: none;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       border-radius: 30px;
-      font-weight: 600;
       transition: var(--transition);
-      box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
-      border: none;
       cursor: pointer;
     }
 
@@ -97,15 +101,20 @@
   padding: 6px 14px;
 }
 
+
     .btn:hover {
+   background: linear-gradient(135deg, #e2e8f0, #f1f5f9);
+  color: #000000;
+  transform: translateY(-2px);
       transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
+      box-shadow: 0 6px 20px rgba(10, 41, 179, 0.719);
     }
 
     .btn-outline {
-      background: transparent;
+     
       border: 2px solid var(--primary);
-      color: var(--primary);
+      background-color: #ffffff;
+  color: #0f172a;
       box-shadow: none;
     }
 
@@ -129,10 +138,10 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      background-color: rgba(248, 250, 252, 0.9);
+      background-color:transparent;
       backdrop-filter: blur(10px);
       transition: var(--transition);
-      box-shadow: 0 2px 25px rgba(0, 0, 0, 0.05);
+      box-shadow: none;
     }
 
     header.scrolled {
@@ -159,33 +168,52 @@
   width: 30px;
   height: 30px;
 }
+.nav-links li a:hover {
+  background: rgba(44, 164, 220, 0.15);
+  color: var(--primary);
+}
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centers icon */
+  color: #0f172a;
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 20px;
+  transition: background 0.3s ease, color 0.3s ease;
+  background: rgba(101, 129, 220, 0.902);
+  overflow: hidden;
+}
+
+.nav-label {
+  position: absolute;
+  left: 100%;
+  white-space: nowrap;
+  background-color: rgba(255,255,255,0.95);
+  color: var(--primary);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateX(10px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links li a:hover .nav-label,
+.nav-links li a.active .nav-label {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
 
 
-    .nav-links {
-      display: flex;
-      gap: 30px;
-    }
-
-    .nav-links a {
-      font-weight: 500;
-      position: relative;
-      padding-bottom: 5px;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: var(--primary);
-      transition: var(--transition);
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
 
     .nav-links a.active::after {
       width: 100%;
@@ -198,10 +226,42 @@
     }
 
     /* Hero Section */
-    #hero {
-      background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(124, 58, 237, 0.1));
-      padding-top: 120px;
-    }
+    .hero-bg-video {
+   position: absolute;
+  top: 0;
+ filter: brightness(1.05);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 1; /* Optional: adjust for visibility */
+  
+  pointer-events: none; /* Ensure buttons still clickable */
+}
+
+#hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: 120px;
+  min-height: 100vh;
+}
+
+.hero-overlay { position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.35); /* adjust 0.2–0.5 for lightness */
+  z-index: 0.5;
+  pointer-events: none; /* keeps the layer from blocking clicks */
+}
+
+
+.hero-container {
+  position: relative;
+  z-index: 1; /* ensures content appears above video */
+}
 
     .hero-content {
       display: flex;
@@ -217,8 +277,11 @@
     }
 
     .hero-text h1 {
+       margin-top: 120px; 
       margin-bottom: 15px;
       animation: slideInLeft 0.8s ease-out;
+       color: #ffffff; /* White text for contrast */
+ text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4); /* Soft dark glow */
     }
 
     .hero-text p {
@@ -226,7 +289,10 @@
       font-size: 1.2rem;
       animation: slideInLeft 0.8s ease-out 0.2s forwards;
       opacity: 0;
-    }
+       color: #ffffff; /* White text for contrast */
+   /* Soft dark glow */
+   
+text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);}
 
     .hero-btns {
       display: flex;
@@ -506,15 +572,14 @@
   flex-shrink: 0;
 }
 
-
-/* Container for role and dropdown icon on the same line */
-.role-dropdown-line {
+/* Keep role text and arrow aligned inline */
+.role-line {
   display: flex;
   align-items: center;
-  gap: 8px; /* spacing between title and dropdown arrow */
+  gap:1rem;
 }
 
-/* Role title */
+/* Role title stays outside border */
 .role-title {
   font-weight: 600;
   font-size: 1rem;
@@ -522,138 +587,48 @@
   white-space: nowrap;
 }
 
-/* Dropdown summary */
-.dropdown-toggle {
-  font-size: 1rem;
-  cursor: pointer;
-  user-select: none;
+/* Summary without border around it */
+details summary {
   list-style: none;
+  border: none;
   padding: 0;
-  margin: 0;
+  background: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
 }
 
 /* Remove default triangle */
-details summary {
-  list-style: none;
+details summary::-webkit-details-marker {
+  display: none;
 }
 
-/* Style the details content */
-details ul {
-  margin-top: 8px;
-  padding-left: 20px;
-  list-style-type: disc;
-}
-
-
-
-
-/*
-.role-dropdown {
-
-  gap: 8px; // spacing between title and dropdown arrow 
-  display: flex;
+/* Style the arrow ONLY */
+details summary span.dropdown-arrow {
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 5px;
-  flex-wrap: nowrap; //Prevent wrapping to next line
-  white-space: nowrap;
-}
-
-.role-title {
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-.dropdown {
-  cursor: pointer;
-  font-size: 1.2rem;
-  background: none;
-  border: none;
-}
-
-// Styling for dropdown content 
-details ul {
-  margin-top: 8px;
-  padding-left: 20px;
-  list-style-type: disc;
-}
-*/
- /*
- .dropdown {
- 
-  background: var(--primary);
-  color: white;
-  padding: 5px 12px;
-  border-radius: 20px;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding:12px;
+  border: 4px solid #bad0e4;
+  border-radius: 7px;
   font-size: 0.85rem;
-  font-weight: 500;
-  cursor: pointer;
-  border: none;
-  white-space: nowrap;
-  display: inline-block;
-  flex-shrink: 0;
+  color: #e7e8ed;
+  background-color: rgb(11, 11, 130);
+  transition: all 0.3s ease;
 }
 
-*/
-/* Ensure dropdown content shows */
-details {
-  width: 100%;
-  margin-top: 5px;
+/* Hover effect */
+details summary span.dropdown-arrow:hover {
+  background-color: #7cc8e8;
+  color: rgb(55, 62, 66);
 }
 
-details summary {
-  font-weight: 500;
-  cursor: pointer;
-  list-style: none;
+/* Rotate when open */
+details[open] summary span.dropdown-arrow {
+  transform: rotate(180deg);
 }
-
-
-details summary::before {
-  content: "▼ ";
-  margin-right: 5px;
-}
-.timeline-subheader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
-  margin-bottom: 10px;
-  gap: 10px;
-}
-/*
-.role-title {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--secondary);
-  white-space: nowrap;         // 💡 prevent line break
-  overflow: hidden;            // hide overflow text 
-  text-overflow: ellipsis;     // show "..." if too long 
-  flex-grow: 1;                // take remaining space 
-}
-*/
-
-/* Make <summary> look like a button */
-
-.dropdown::before {
-  content: "▼";
-  margin-right: 4px;
-}
-
-details[open] .dropdown::before {
-  content: "▲";
-}
-
-/* Fix dropdown not showing or looking weird */
-details {
-  width: 100%;
-  margin-top: 5px;
-}
-
-details summary {
-  list-style: none;
-  outline: none;
-}
-
 
 
 
@@ -736,6 +711,7 @@ details summary {
     }
 
     .submit-btn {
+      
       width: 100%;
       padding: 15px;
       font-size: 1.1rem;
@@ -884,10 +860,10 @@ details summary {
 
     #hero {
   position: relative;
-  background-color: #0f172a; /* Dark background */
+  background-color: #fffcc8; /* Dark background */
   overflow: hidden;
 }
-
+/*
 .animated-bg {
   position: absolute;
   width: 100%;
@@ -897,6 +873,7 @@ details summary {
   animation: animateStars 20s linear infinite;
   z-index: 0;
 }
+*/
 
 @keyframes animateStars {
   0% {
@@ -957,8 +934,8 @@ details[open] summary::before {
   margin-bottom: 3px;
 }
 .glow-text {
-  color: #032561; /* calm blue */
-  font-weight: 600;
+  color: #445064; /* calm blue */
+  font-weight: 400;
   font-size: 1.1rem;
   text-shadow: 0 0 4px rgba(14, 165, 233, 0.5);
 }

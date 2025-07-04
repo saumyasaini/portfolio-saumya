@@ -12,16 +12,17 @@
   <header id="header">
     <nav>
          <a href="#" class="logo">
-      <img src="https://cdn-icons-png.flaticon.com/128/726/726107.png" alt="Logo" class="logo-icon">
+      <img src="https://cdn-icons-png.flaticon.com/128/5891/5891729.png" alt="Logo" class="logo-icon">
       <span>Port<span>folio</span></span>
     </a>
-      <ul class="nav-links">
-        <li><a href="#hero" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+  <ul class="nav-links">
+  <li><a href="#hero"><i class="fas fa-home"></i><span class="nav-label">Home</span></a></li>
+  <li><a href="#about"><i class="fas fa-user"></i><span class="nav-label">About</span></a></li>
+  <li><a href="#projects"><i class="fas fa-code"></i><span class="nav-label">Projects</span></a></li>
+  <li><a href="#resume"><i class="fas fa-file-alt"></i><span class="nav-label">Resume</span></a></li>
+  <li><a href="#contact"><i class="fas fa-envelope"></i><span class="nav-label">Contact</span></a></li>
+</ul>
+
       <div class="menu-btn">
         <i class="fas fa-bars"></i>
       </div>
@@ -29,7 +30,12 @@
   </header>
 
   <section id="hero">
-     <div class="animated-bg"></div>
+    <video autoplay muted loop playsinline class="hero-bg-video">
+  <source src="video/bg-vdo.mp4" type="video/mp4" />
+  <!-- fallback for unsupported browsers -->
+  Your browser does not support the video tag.
+</video>
+<div class="video-overlay"></div>
     <div class="container hero-container">
       <div class="hero-content">
         <div class="hero-text">
@@ -50,7 +56,7 @@
   <!-- About Section -->
   <section id="about">
     <div class="container">
-      <h2>About Me</h2>
+      <>About Me</h2>
       <div class="about-content">
         
         <div class="about-text">
@@ -228,14 +234,19 @@ A full-stack e-commerce platform built using Java, JDBC, and MySQL, offering fea
 
     <div class="edu-card">
       <div class="edu-title">Bachelor of Technology</div>
-      <div class="glow-text">with specialization in Information Technology</div>
-      <p>A comprehensive program covering fundamental and advanced concepts in software development, OOPs, and system design.</p>
+      <div class="glow-text">2021-2025</div>
+      <p>with specialization in Information Technology
+      <br>A comprehensive program covering fundamental and advanced concepts in software development, OOPs, and system design.</p>
+    </div>
+    
+    <div class="edu-card">
+      <div class="edu-title">Senior Secondary School</div>
+      <div class="glow-text">2021</div>
+      <p>PCM , Computer Science</p>
     </div>
 
-
-  <!-- Work Experience in Timeline Style -->
-
-  <div class="resume-column">
+<!-- Work Experience in Timeline Style -->
+<div class="resume-column">
   <h3>Work Experience</h3>
   <p>I've had the opportunity to work on diverse projects across different domains, enhancing my skills and expertise along the way.</p>
 
@@ -247,18 +258,19 @@ A full-stack e-commerce platform built using Java, JDBC, and MySQL, offering fea
         <span class="company-name">EDB Global, Ghaziabad</span>
         <span class="timeline-date">Sept 2023 – Oct 2023</span>
       </div>
-      <div class="timeline-subheader">
-        <div class="role-line">
-          <span class="role-title">Web Development Intern</span>
-          <details>
-            <summary class="dropdown-summary">▼</summary>
-            <ul class="dropdown-content">
-              <li>Developed a full-stack e-commerce website using Java, JDBC, and MySQL.</li>
-              <li>Implemented login/signup, product catalog, cart, and order features.</li>
-              <li>Integrated REST APIs and improved backend SQL queries.</li>
-            </ul>
-          </details>
-        </div>
+      <div class="role-line">
+        <details class="dropdown-wrapper">
+         <summary class="dropdown-button">
+  <span class="role-title">Web Development Intern</span>
+  <span class="dropdown-arrow">▼</span>
+</summary>
+
+          <ul class="dropdown-content">
+            <li>Developed a full-stack e-commerce website using Java, JDBC, and MySQL.</li>
+            <li>Implemented login/signup, product catalog, cart, and order features.</li>
+            <li>Integrated REST APIs and improved backend SQL queries.</li>
+          </ul>
+        </details>
       </div>
     </div>
 
@@ -268,18 +280,19 @@ A full-stack e-commerce platform built using Java, JDBC, and MySQL, offering fea
         <span class="company-name">Bharat Intern (Remote)</span>
         <span class="timeline-date">Aug 2023 – Sept 2023</span>
       </div>
-      <div class="timeline-subheader">
-        <div class="role-line">
-          <span class="role-title">Web Development Intern</span>
-          <details>
-            <summary class="dropdown-summary">▼</summary>
-            <ul class="dropdown-content">
-              <li>Created a personal portfolio site and a calculator using HTML, CSS, JavaScript.</li>
-              <li>Practiced DOM manipulation and responsive UI design.</li>
-              <li>Improved frontend skills and attention to layout and interactivity.</li>
-            </ul>
-          </details>
-        </div>
+      <div class="role-line">
+        <details class="dropdown-wrapper">
+         <summary class="dropdown-button">
+  <span class="role-title">Web Development Intern</span>
+  <span class="dropdown-arrow">▼</span>
+</summary>
+
+          <ul class="dropdown-content">
+            <li>Created a personal portfolio site and a calculator using HTML, CSS, JavaScript.</li>
+            <li>Practiced DOM manipulation and responsive UI design.</li>
+            <li>Improved frontend skills and attention to layout and interactivity.</li>
+          </ul>
+        </details>
       </div>
     </div>
 
@@ -289,24 +302,24 @@ A full-stack e-commerce platform built using Java, JDBC, and MySQL, offering fea
         <span class="company-name">Shriram Pistons & Rings Ltd</span>
         <span class="timeline-date">June 2025 – Present</span>
       </div>
-      <div class="timeline-subheader">
-        <div class="role-line">
-          <span class="role-title">Automation Intern (Google Workspace)</span>
-          <details>
-            <summary class="dropdown-summary">▼</summary>
-            <ul class="dropdown-content">
-              <li>Learning automation using Google Apps Script and AppSheet.</li>
-              <li>Built internal tools to automate approvals and form workflows.</li>
-              <li>Used email triggers, Sheets integration, and dashboards for tracking.</li>
-            </ul>
-          </details>
-        </div>
+      <div class="role-line">
+        <details class="dropdown-wrapper">
+         <summary class="dropdown-button">
+  <span class="role-title">Automation Intern</span>
+  <span class="dropdown-arrow">▼</span>
+</summary>
+
+          <ul class="dropdown-content">
+            <li>Learning automation using Google Apps Script and AppSheet.</li>
+            <li>Built internal tools to automate approvals and form workflows.</li>
+            <li>Used email triggers, Sheets integration, and dashboards for tracking.</li>
+          </ul>
+        </details>
       </div>
     </div>
 
   </div>
 </div>
-
 
       
       <div class="download-btn">
